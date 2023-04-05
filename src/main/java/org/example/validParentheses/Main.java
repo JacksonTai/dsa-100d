@@ -1,5 +1,7 @@
 package org.example.validParentheses;
 
+import java.util.Stack;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -7,38 +9,52 @@ public class Main {
     }
 
     public boolean solution(String s) {
-        /*
-        loop through every characters in the string
-        every time the index number become even number: means it's a new combination of brackets
-        ()[]{}[]
-        01234567 <- index
-        0 2 4 6  <- if index is even number, it's a new combination of brackets
-
-        for each loop/characters
-            if current index is even number, make sure to check the next characters is the same
-
-        */
+        // all character need to have a pair. So total count should be even
         if (s.length() % 2 != 0) {
             return false;
         }
-        for (int i = 0; i < s.length(); i++) {
-            char currentChar, nextChar;
-            currentChar = nextChar = s.charAt(i);
 
-            if (i != s.length()) {
-                nextChar = s.charAt(i + 1);
-            }
+        Stack<Character> stack = new Stack<>();
 
-            if (currentChar == '(' && nextChar != ')') {
-                return false;
+        for (char c : s.toCharArray()) {
+            // push all opening brackets to stack and compare them with closed ones later.
+            if (c == '(' || c == '{' || c == '[') {
+                stack.push(c);
             }
-            if (currentChar == '{' && nextChar != '}') {
-                return false;
-            }
-            if (currentChar == '[' && nextChar != ']') {
+            // if top element in stack is the closing then remove that pair.
+            else if (c == ')' && !stack.isEmpty() && stack.peek() == '(') {
+                stack.pop();
+            } else if (c == '}' && !stack.isEmpty() && stack.peek() == '{') {
+                stack.pop();
+            } else if (c == ']' && !stack.isEmpty() && stack.peek() == '[') {
+                stack.pop();
+            } else {
+                // if there are cases like }}, ]], )), ([}}]) this will return false
+                /*
+                Detail of this case: ([}}]) will become valid
+                Iteration 1:
+                    c = '{'
+                    It meets the condition c == '(' || c == '{' || c == '[', so it pushes '{' to the stack.
+                Iteration 2:
+                    c = '['
+                    It meets the condition c == '(' || c == '{' || c == '[', so it pushes '[' to the stack.
+                Iteration 3:
+                    c = '}'
+                    The conditions for ')' and ']' are not met. The condition c == '}' && !stack.isEmpty() && stack.peek() == '{' is checked. Since the top element of the stack is '[', this condition is false, and nothing is popped from the stack.
+                Iteration 4:
+                    c = '}'
+                    The conditions for ')' and ']' are not met. The condition c == '}' && !stack.isEmpty() && stack.peek() == '{' is checked. Now, the top element of the stack is still '[', this condition is false, and nothing is popped from the stack.
+                Iteration 5:
+                    c = ']'
+                    The conditions for ')' and '}' are not met. The condition c == ']' && !stack.isEmpty() && stack.peek() == '[' is checked. Since the top element of the stack is '[', this condition is true, so '[' is popped from the stack.
+                Iteration 6:
+                    c = '}'
+                    The conditions for ')' and ']' are not met. The condition c == '}' && !stack.isEmpty() && stack.peek() == '{' is checked. Now, the top element of the stack is '{', this condition is true, so '{' is popped from the stack.
+                    At the end of the loop, the stack is empty, so the function would return true without the last else block. However, this is incorrect, as the input string is not valid. The last else block is necessary to catch cases like this where the string contains a closing bracket without a corresponding opening bracket in the correct order.
+                 */
                 return false;
             }
         }
-        return true;
+        return stack.isEmpty();
     }
 }
