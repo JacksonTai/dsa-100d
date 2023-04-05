@@ -1,4 +1,4 @@
 # DSA-100D
 
-Day 1 - Two Sum<br>
-Day 2 - Valid Parentheses
+Day 1 [4/4/2023] - Two Sum<br>
+Day 2 [5/4/2023] - Valid Parentheses
