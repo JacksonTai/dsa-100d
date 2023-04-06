@@ -3,20 +3,19 @@ package org.example.bestTimeToBuyAndSellStock;
 public class Main {
 
     public int maxProfit(int[] prices) {
-        // brute force: for each buy day, check for the profit that can be obtained for every selling day
+        // Improved solution: Sliding Window
         int maxProfit = 0;
-        for (int i = 0; i < prices.length; i++) {
+        int buyingDay = 0;
+        int sellingDay = 1;
 
-            for (int j = i + 1; j < prices.length; j++) {
-
-                int buyPrice = prices[i];
-                int sellPrice = prices[j];
-                int profit = sellPrice - buyPrice;
-                if (profit > maxProfit) {
-                    maxProfit = profit;
-                }
-
+        while (sellingDay < prices.length) {
+            if (prices[buyingDay] < prices[sellingDay]) {
+                int profit = prices[sellingDay] - prices[buyingDay];
+                maxProfit = Math.max(maxProfit, profit);
+            } else {
+                buyingDay = sellingDay;
             }
+            sellingDay += 1;
         }
         return maxProfit;
     }
