@@ -1,8 +1,8 @@
-package org.example.hashset;
+package org.example.set.smallestPositiveNum;
 
 import java.util.*;
 
-public class Q1 {
+public class Main {
 
     public static int solution(int [] A) {
 

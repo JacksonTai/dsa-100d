@@ -1,4 +1,4 @@
-package org.example.bestTimeToBuyAndSellStock;
+package org.example.array.bestTimeToBuyAndSellStock;
 
 public class Main {
 
