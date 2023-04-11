@@ -8,6 +8,7 @@ Day 5 [8/4/2023] - Contains Duplicate (Hashset)<br>
 Day 5 [8/4/2023] - Move Zeroes (ArrayList)<br>
 Day 6 [9/4/2023] - Missing Number (Hashset)<br>
 Day 7 [10/4/2023] - Find All Numbers Disappeared in an Array (Hashset)<br>
+Day 8 [11/4/2023] - Single Number (Hashset)
 
 ## Stack
 Day 2 [5/4/2023] - Valid Parentheses<br>
