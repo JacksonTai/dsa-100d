@@ -9,7 +9,8 @@ Day 5 [8/4/2023] - Move Zeroes (ArrayList)<br>
 Day 6 [9/4/2023] - Missing Number (Hashset)<br>
 Day 7 [10/4/2023] - Find All Numbers Disappeared in an Array (Hashset)<br>
 Day 8 [11/4/2023] - Single Number (Hashset)<br>
-Day 8 [11/4/2023] - Reverse String (Two Pointer)
+Day 8 [11/4/2023] - Reverse String (Two Pointer)<br>
+Day 9 [23/4/2023] - Convert 1D Array Into 2D Array (Modulo)<br>
 
 ## Stack
 Day 2 [5/4/2023] - Valid Parentheses<br>
