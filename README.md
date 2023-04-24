@@ -11,6 +11,7 @@ Day 7 [10/4/2023] - Find All Numbers Disappeared in an Array (Hashset)<br>
 Day 8 [11/4/2023] - Single Number (Hashset)<br>
 Day 8 [11/4/2023] - Reverse String (Two Pointer)<br>
 Day 9 [23/4/2023] - Convert 1D Array Into 2D Array (Modulo)<br>
+Day 10 [24/4/2023] - Remove duplicates from sorted array (Two Pointer)<br>
 
 ## Stack
 Day 2 [5/4/2023] - Valid Parentheses<br>
